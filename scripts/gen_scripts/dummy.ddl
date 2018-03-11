@@ -1,0 +1,1 @@
+rem just a dummy file as a placeholder for the plsql call from gen_ddl.sql

@@ -1,0 +1,11 @@
+*.bak
+/backup.log
+/*.bat
+/scripts/backup_scripts/*.sql
+/install/install.sql
+/install/install.log
+/install/utl-db-data
+/db
+/run_gen
+/backup_utl.log
+
