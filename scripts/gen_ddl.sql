@@ -87,8 +87,8 @@ select
         else 'scripts/gen_scripts/dummy.ddl'
     end as update_sql
 from
-    (select 
-        regexp_substr(min(comments), 'gen_ddl.version=(\d+\.\d+\.\d+)', 1, 1, null, 1) gen_ddl_version
+    (select
+        nvl(regexp_substr(min(comments), 'gen_ddl.version=(\d+\.\d+\.\d+)', 1, 1, null, 1), 'undefined') gen_ddl_version
     from user_tab_comments
     where table_name = 'UTL_GEN_IGNORE');
 
@@ -121,7 +121,7 @@ PROMPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 PROMPT
 set termout off
 
--- spool on/off used to print proggress to console
+-- TERMOUT and SPOOL on/off used to print proggress to console / logfile
 
 --packages
 SET TERMOUT ON

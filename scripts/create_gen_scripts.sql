@@ -7,10 +7,12 @@ SET TRIMSPOOL ON
 
 DEFINE folder= &1
 DEFINE gen_scripts_dir= &2
+DEFINE log_file=&gen_scripts_dir/../../gen_ddl.log
 
 -------------------------------------------------------------------------------
 --=== TABLES
 -------------------------------------------------------------------------------
+SPOOL &log_file APPEND
 SET TERMOUT ON
 PROMPT generate TABLES script
 SET TERMOUT OFF
@@ -116,6 +118,7 @@ SPOOL OFF
 -------------------------------------------------------------------------------
 --=== VIEWS
 -------------------------------------------------------------------------------
+SPOOL &log_file APPEND
 SET TERMOUT ON
 PROMPT generate VIEWS script
 SET TERMOUT OFF
@@ -194,6 +197,7 @@ SPOOL OFF
 -------------------------------------------------------------------------------
 --=== SEQUENCES
 -------------------------------------------------------------------------------
+SPOOL &log_file APPEND
 SET TERMOUT ON
 PROMPT generate SEQUENCES script
 SET TERMOUT OFF
@@ -237,6 +241,7 @@ SPOOL OFF
 -------------------------------------------------------------------------------
 --=== SYNONYMS
 -------------------------------------------------------------------------------
+SPOOL &log_file APPEND
 SET TERMOUT ON
 PROMPT generate SYNONYMS script
 SET TERMOUT OFF
@@ -282,6 +287,7 @@ SPOOL OFF
 -------------------------------------------------------------------------------
 --=== PROCEDURES
 -------------------------------------------------------------------------------
+SPOOL &log_file APPEND
 SET TERMOUT ON
 PROMPT generate PROCEDURES script
 SET TERMOUT OFF
@@ -326,6 +332,7 @@ SPOOL OFF
 -------------------------------------------------------------------------------
 --=== FUNCTIONS
 -------------------------------------------------------------------------------
+SPOOL &log_file APPEND
 SET TERMOUT ON
 PROMPT generate FUNCTIONS script
 SET TERMOUT OFF
@@ -370,6 +377,7 @@ SPOOL OFF
 -------------------------------------------------------------------------------
 --=== TRIGGERS
 -------------------------------------------------------------------------------
+SPOOL &log_file APPEND
 SET TERMOUT ON
 PROMPT generate TRIGGERS script
 SET TERMOUT OFF
@@ -419,6 +427,7 @@ SPOOL OFF
 -------------------------------------------------------------------------------
 --=== PACKAGES
 -------------------------------------------------------------------------------
+SPOOL &log_file APPEND
 SET TERMOUT ON
 PROMPT generate PACKAGES script
 SET TERMOUT OFF
@@ -492,6 +501,7 @@ SPOOL OFF
 -------------------------------------------------------------------------------
 --=== TYPES
 -------------------------------------------------------------------------------
+SPOOL &log_file APPEND
 SET TERMOUT ON
 PROMPT generate TYPES script
 SET TERMOUT OFF
@@ -568,6 +578,7 @@ SPOOL OFF
 -------------------------------------------------------------------------------
 --=== JOBS
 -------------------------------------------------------------------------------
+SPOOL &log_file APPEND
 SET TERMOUT ON
 PROMPT generate JOBS script
 SET TERMOUT OFF
@@ -612,6 +623,7 @@ SPOOL OFF
 -------------------------------------------------------------------------------
 --=== DBLINKS
 -------------------------------------------------------------------------------
+SPOOL &log_file APPEND
 SET TERMOUT ON
 PROMPT generate DBLINKS script
 SET TERMOUT OFF
@@ -655,6 +667,7 @@ SPOOL OFF
 -------------------------------------------------------------------------------
 --=== MATERIALIZED VIEWS
 -------------------------------------------------------------------------------
+SPOOL &log_file APPEND
 SET TERMOUT ON
 PROMPT generate MATERIALIZED VIEWS script
 SET TERMOUT OFF
@@ -662,13 +675,13 @@ SET TERMOUT OFF
 SPOOL &gen_scripts_dir/mviews.sql
 DECLARE
     l_obj_type VARCHAR2(30) :='MATERIALIZED_VIEW';
-    l_file_ext VARCHAR2(3) :='mv';
+    l_obj_str VARCHAR2(3) :='mv';
     l_folder VARCHAR2(20) := 'mviews';
     l_add_line_sl VARCHAR2(50) := 'select ''/'' text from dual;'||CHR(10);    
 BEGIN
     dbms_output.put_line('
 PROMPT
-PROMPT Performing '||l_folder||' backup
+PROMPT Performing '||upper(l_folder)||' backup
 PROMPT =================================
 PROMPT
 ');
@@ -701,6 +714,7 @@ SPOOL OFF
 -------------------------------------------------------------------------------
 -- grants for schema
 -------------------------------------------------------------------------------
+SPOOL &log_file APPEND
 SET TERMOUT ON
 PROMPT generate GRANTS script
 SET TERMOUT OFF

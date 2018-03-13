@@ -1,11 +1,7 @@
 *.bak
-/backup.log
+gen_ddl.log
 /*.bat
-/scripts/backup_scripts/*.sql
-/install/install.sql
-/install/install.log
-/install/utl-db-data
+/scripts/gen_scripts/*.sql
 /db
 /run_gen
-/backup_utl.log
 
