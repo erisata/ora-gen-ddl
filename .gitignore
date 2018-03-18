@@ -3,5 +3,6 @@ gen_ddl.log
 /*.bat
 /scripts/gen_scripts/*.sql
 /db
-/run_gen
+/run_gen/*.bat
+/run_gen/*/*
 

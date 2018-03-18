@@ -1,0 +1,3 @@
+cd ..
+run_gen_ddl.cmd C:\code\git\someproject-db\SCHEMA_NAME owner/psw@DB_NAME
+pause
