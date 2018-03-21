@@ -126,7 +126,7 @@ SPOOL &gen_scripts_dir/views.sql
 DECLARE
    l_obj_type VARCHAR2(10) :='VIEW';
    l_obj_str VARCHAR2(3) :='vw';
-   l_folder VARCHAR2(20) := 'VIEWS';
+   l_folder VARCHAR2(20) := 'views';
    l_add_line_sl VARCHAR2(50) := 'select ''/'' text from dual;'||CHR(10);
 BEGIN
     dbms_output.put_line('
@@ -341,7 +341,7 @@ SPOOL &gen_scripts_dir/functions.sql
 DECLARE
    l_obj_type VARCHAR2(10) :='FUNCTION';
    l_obj_str VARCHAR2(5) :='fnc ';
-   l_folder VARCHAR2(20) := 'FUNCTIONS';
+   l_folder VARCHAR2(20) := 'functions';
    l_add_line_sl VARCHAR2(50) := 'select ''/'' text from dual;'||CHR(10);
 BEGIN
     dbms_output.put_line('
@@ -386,7 +386,7 @@ SPOOL &gen_scripts_dir/triggers.sql
 DECLARE
    l_obj_type VARCHAR2(10) :='TRIGGER';
    l_obj_str VARCHAR2(3) :='trg';
-   l_folder VARCHAR2(20) := 'TRIGGERS';
+   l_folder VARCHAR2(20) := 'triggers';
    l_add_line_sl VARCHAR2(50) := 'select ''/'' text from dual;'||CHR(10);
 BEGIN
     dbms_output.put_line('
@@ -512,7 +512,7 @@ DECLARE
    l_obj_type_body VARCHAR2(10) :='TYPE BODY';
    l_obj_str VARCHAR2(3) :='tps';
    l_obj_str_body VARCHAR2(3) :='tpb';
-   l_folder VARCHAR2(20) := 'TYPES';
+   l_folder VARCHAR2(20) := 'types';
    l_add_line_sl VARCHAR2(50) := 'select ''/'' text from dual;'||CHR(10);
 BEGIN
     dbms_output.put_line('
@@ -587,7 +587,7 @@ SPOOL &gen_scripts_dir/jobs.sql
 DECLARE
     l_obj_type VARCHAR2(10) :='PROCOBJ';
     l_obj_str VARCHAR2(3) :='job';
-    l_folder VARCHAR2(20) := 'JOBS';
+    l_folder VARCHAR2(20) := 'jobs';
     l_add_line_sl VARCHAR2(50) := 'select ''/'' text from dual;'||CHR(10);
 BEGIN
     dbms_output.put_line('
@@ -632,7 +632,7 @@ SPOOL &gen_scripts_dir/dblinks.sql
 DECLARE
     l_obj_type VARCHAR2(10) :='DB_LINK';
     l_obj_str VARCHAR2(3) :='dbl';
-    l_folder VARCHAR2(20) := 'DBLINKS';
+    l_folder VARCHAR2(20) := 'dblinks';
     l_add_line_sl VARCHAR2(50) := 'select ''/'' text from dual;'||CHR(10);
 BEGIN
     dbms_output.put_line('
@@ -723,7 +723,7 @@ SPOOL &gen_scripts_dir/grants.sql
 DECLARE
    l_obj_type VARCHAR2(12) :='OBJECT_GRANT';
    l_obj_str VARCHAR2(3) :='sql';
-   l_folder VARCHAR2(6) := 'GRANTS';
+   l_folder VARCHAR2(6) := 'grants';
 BEGIN
     dbms_output.put_line('
 PROMPT
