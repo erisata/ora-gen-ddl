@@ -88,7 +88,7 @@ select
     end as update_sql
 from
     (select
-        nvl(regexp_substr(min(comments), 'gen_ddl.version=(\d+\.\d+\.\d+)', 1, 1, null, 1), 'undefined') gen_ddl_version
+        nvl(substr(regexp_substr(min(comments), 'gen_ddl.version=(\d+\.\d+\.\d+)'),17), 'undefined') gen_ddl_version
     from user_tab_comments
     where table_name = 'UTL_GEN_IGNORE');
 
