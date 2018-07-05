@@ -71,7 +71,7 @@ PROMPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 PROMPT  (1.2) "verify installed gen_ddl version"
 PROMPT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-DEFINE gen_ddl_ver = "1.0.0"
+DEFINE gen_ddl_ver = "1.0.1"
 COLUMN check_ver  NEW_VALUE l_version_text
 COLUMN update_sql NEW_VALUE l_update_script
 

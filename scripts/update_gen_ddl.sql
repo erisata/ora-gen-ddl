@@ -40,4 +40,7 @@ PROMPT "Creating table type UTL_GEN_SOURCE_TT"
 PROMPT "Creating function UTL_GEN_DDL_FT"
 @@&sql_path/UTL_GEN_DDL_FT.fnc
 
+PROMPT "Create table comment with version"
+COMMENT ON TABLE UTL_GEN_IGNORE IS 'Objects to be excluded from DDL generation. This table comment also holds version checked on script execution [utl_gen_ddl.version=1.0.1]';
+
 SHOW ERRORS;

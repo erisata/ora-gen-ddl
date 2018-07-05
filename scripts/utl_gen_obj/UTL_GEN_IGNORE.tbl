@@ -11,5 +11,5 @@ COMMENT ON COLUMN UTL_GEN_IGNORE.OIG_NAME IS 'Excluded object name (matching LIK
 COMMENT ON COLUMN UTL_GEN_IGNORE.OIG_TYPE IS 'Excluded object type';
 /
 
-COMMENT ON TABLE UTL_GEN_IGNORE IS 'Objects to be excluded from DDL generation. This table comment also holds version checked on script execution [utl_gen_ddl.version=1.0.0]';
+COMMENT ON TABLE UTL_GEN_IGNORE IS 'Objects to be excluded from DDL generation. This table comment also holds version checked on script execution [utl_gen_ddl.version=1.0.1]';
 /

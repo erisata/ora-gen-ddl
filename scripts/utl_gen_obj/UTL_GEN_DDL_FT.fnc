@@ -127,9 +127,39 @@ BEGIN
                     dbms_lob.substr (fetch_ddl, l_size-l_end_pos,  l_end_pos) );
             end;
 
+        -- 4.3) for PACKAGES and TYPES remove EDITIONABLE clause
+        elsif p_object_type in ('PACKAGE_SPEC', 'PACKAGE_BODY', 'TYPE_SPEC', 'TYPE BODY') then
+            declare
+                l_pos integer;
+                l_replace_what varchar2(500) := 'CREATE OR REPLACE EDITIONABLE ';
+                l_replace_with varchar2(500) := 'CREATE OR REPLACE ';
+            begin
+                -- by asktom lob replace example
+                l_pos := dbms_lob.instr(fetch_ddl, l_replace_what);
+
+                if nvl(l_pos,0) > 0 then
+                
+                    dbms_lob.copy(
+                      dest_lob    => fetch_ddl,
+                      src_lob     => fetch_ddl,
+                      amount      => dbms_lob.getlength (fetch_ddl),
+                      dest_offset => l_pos+length(l_replace_with),
+                      src_offset  => l_pos+length(l_replace_what) );
+
+                    dbms_lob.write( fetch_ddl, length(l_replace_with), l_pos, l_replace_with ); 
+                
+                    if ( length(l_replace_what) > length(l_replace_with) ) then 
+                        dbms_lob.trim( 
+                            fetch_ddl, 
+                            dbms_lob.getlength(fetch_ddl)-(length(l_replace_what)-length(l_replace_with)) ); 
+                    end if; 
+                                          
+                end if;
+            end;
+
         end if;
 
-        -- Cleanup and release the handles
+        -- cleanup and release the handles
         DBMS_METADATA.close (hOpenOrig);
 
     end if;  -- spec object types;

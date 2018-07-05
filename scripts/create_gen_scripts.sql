@@ -439,7 +439,7 @@ DECLARE
    l_obj_str VARCHAR2(3) :='pks';
    l_obj_str_body VARCHAR2(3) :='pkb';
    l_folder VARCHAR2(20) := 'packages';
-   l_add_line_sl VARCHAR2(50) := 'select ''/'' text from dual;'||CHR(10);
+   l_add_line_sl VARCHAR2(50) := 'select chr(47) text from dual;'||CHR(10);
 BEGIN
     dbms_output.put_line('
 PROMPT
