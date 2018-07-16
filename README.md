@@ -17,3 +17,11 @@ Windows CLI:
 run_gen_ddl.cmd C:\code\git\someproject-db\SCHEMA_NAME owner/psw@db_name
 ~~~~
 
+## Generate only DDL
+
+Linux terminal (run from ora-gen-ddl directory): 
+```
+./run_gen_ddl.sh owner/psw@db_name /home/some-user/code/someproject-db/SCHEMA_NAME
+```
+
+
