@@ -128,7 +128,7 @@ BEGIN
             end;
 
         -- 4.3) for PACKAGES and TYPES remove EDITIONABLE clause
-        elsif p_object_type in ('PACKAGE_SPEC', 'PACKAGE_BODY', 'TYPE_SPEC', 'TYPE BODY') then
+        elsif p_object_type in ('PACKAGE_SPEC', 'PACKAGE_BODY', 'TYPE_SPEC', 'TYPE_BODY', 'PROCEDURE', 'FUNCTION') then
             declare
                 l_pos integer;
                 l_replace_what varchar2(500) := 'CREATE OR REPLACE EDITIONABLE ';
