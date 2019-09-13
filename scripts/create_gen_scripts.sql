@@ -49,7 +49,7 @@ EXECUTE dbms_metadata.set_transform_param( DBMS_METADATA.SESSION_TRANSFORM, ''TA
      WHERE UPPER(object_type)=UPPER(l_obj_type)
        --ignore some system tables (comment if needed)
         AND SUBSTR(UPPER(object_name),1,3) NOT IN ('Q##','BIN','SYS','AQ$')
-        AND UPPER(object_name) NOT LIKE 'QT%'
+        --AND UPPER(object_name) NOT LIKE 'QT%'
         AND not exists (
                 select 1 from utl_gen_ignore i
                 where o.object_type = i.oig_type
@@ -310,7 +310,7 @@ PROMPT
         SELECT object_name
         FROM user_objects o
         WHERE UPPER(object_type)=UPPER(l_obj_type)
-        and 1=2
+        --and 1=2
         AND not exists (
                 select 1 from utl_gen_ignore i
                 where o.object_type = i.oig_type
