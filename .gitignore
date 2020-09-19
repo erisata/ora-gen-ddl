@@ -5,4 +5,6 @@ gen_ddl.log
 /db
 /run_gen/*.bat
 /run_gen/*/*
+/deploy/*.log
+/deploy/deploy.sql
 
